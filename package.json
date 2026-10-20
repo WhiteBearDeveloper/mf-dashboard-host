@@ -12,11 +12,8 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "workspaces": [
-    "packages/dashboard-ui"
-  ],
   "dependencies": {
-    "@dashboard/ui": "^0.1.0",
+    "@whitebeardeveloper/ui": "^0.1.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },

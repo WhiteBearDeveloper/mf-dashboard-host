@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useState } from "react";
 import { ErrorBoundary } from "./ErrorBoundary";
 import type { DashboardDate } from "@whitebeardeveloper/contracts";
-import { DateFilter, getDashboardDate } from "@dashboard/ui";
+import { DateFilter, getDashboardDate } from "@whitebeardeveloper/ui";
 import styles from "./App.module.scss";
 
 function App() {
