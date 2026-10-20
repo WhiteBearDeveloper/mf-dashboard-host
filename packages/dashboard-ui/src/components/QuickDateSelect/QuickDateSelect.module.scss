@@ -1,0 +1,112 @@
+.field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: var(--dashboard-muted, #718096);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.select {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 14px;
+  border: 1px solid var(--dashboard-border, #e4eaf1);
+  border-radius: 12px;
+  color: var(--dashboard-text, #203047);
+  background-color: var(--dashboard-surface, #ffffff);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+
+  &:hover {
+    border-color: #b8c9d5;
+  }
+
+  &:focus-visible {
+    border-color: #219b8d;
+    outline: 3px solid rgba(81, 199, 181, 0.2);
+    outline-offset: 2px;
+  }
+
+  &[data-placeholder] {
+    color: var(--dashboard-muted, #718096);
+  }
+
+  &[data-state="open"] {
+    border-color: #219b8d;
+  }
+
+  &[data-state="open"] .icon {
+    transform: rotate(180deg);
+  }
+}
+
+.icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  color: var(--dashboard-muted, #718096);
+  transition: transform 160ms ease;
+}
+
+.content {
+  z-index: 1000;
+  width: var(--radix-select-trigger-width);
+  max-height: var(--radix-select-content-available-height);
+  overflow: hidden;
+  padding: 6px;
+  border: 1px solid var(--dashboard-border, #e4eaf1);
+  border-radius: 14px;
+  background-color: var(--dashboard-surface, #ffffff);
+  box-shadow: 0 16px 40px rgba(32, 48, 71, 0.14);
+}
+
+.viewport {
+  max-height: var(--radix-select-content-available-height);
+  overflow-y: auto;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  padding: 0 36px 0 12px;
+  border-radius: 9px;
+  color: var(--dashboard-text, #203047);
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+
+  &[data-highlighted] {
+    color: #176f66;
+    background-color: rgba(81, 199, 181, 0.14);
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.itemIndicator {
+  position: absolute;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  color: #219b8d;
+}

@@ -1,0 +1,249 @@
+@use "./styles/tokens" as tokens;
+@use "./styles/mixins" as mixins;
+
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: flex;
+  flex: 0 0 248px;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 28px 18px 20px;
+  color: #ffffff;
+  background-color: tokens.$color-sidebar;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brandMark {
+  display: flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: tokens.$color-sidebar;
+  background-color: tokens.$color-accent;
+  font-weight: 800;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 48px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.68);
+  text-decoration: none;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
+
+  &:hover,
+  &.navLinkActive {
+    color: #ffffff;
+    background-color: tokens.$color-sidebar-hover;
+  }
+}
+
+.navIcon {
+  width: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.sidebarFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+  padding: 18px 12px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 11px;
+
+  strong {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 38px;
+  padding: 44px clamp(22px, 5vw, 76px);
+}
+
+.pageHeader {
+  h1 {
+    margin: 0;
+    color: tokens.$color-text;
+    font-size: clamp(30px, 3vw, 42px);
+    letter-spacing: -0.04em;
+  }
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: tokens.$color-muted;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.pageDescription {
+  margin: 12px 0 0;
+  color: tokens.$color-muted;
+  font-size: 15px;
+}
+
+.widgetSection {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+
+  h2 {
+    margin: 0;
+    color: tokens.$color-text;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+  }
+
+  .eyebrow {
+    margin-bottom: 8px;
+  }
+}
+
+.widgetCount {
+  padding: 7px 11px;
+  border: 1px solid tokens.$color-border;
+  border-radius: 999px;
+  color: tokens.$color-muted;
+  background-color: tokens.$color-surface;
+  font-size: 12px;
+}
+
+.emptyState {
+  @include mixins.card-surface;
+
+  display: flex;
+  min-height: 280px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px;
+  text-align: center;
+
+  h3 {
+    margin: 0;
+    color: tokens.$color-text;
+    font-size: 18px;
+  }
+
+  p {
+    margin: 8px 0 0;
+    color: tokens.$color-muted;
+    font-size: 14px;
+  }
+}
+
+.emptyIcon {
+  display: flex;
+  width: 54px;
+  height: 54px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  color: #219b8d;
+  background-color: rgba(81, 199, 181, 0.16);
+  font-size: 25px;
+}
+
+@include mixins.tablet-down {
+  .sidebar {
+    flex-basis: 220px;
+  }
+
+  .main {
+    padding: 34px 28px;
+  }
+}
+
+@include mixins.mobile-down {
+  .shell {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    min-height: auto;
+    flex-basis: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+  }
+
+  .brandMark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .navigation {
+    flex-direction: row;
+    gap: 4px;
+    margin-top: 0;
+  }
+
+  .navLink {
+    gap: 7px;
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+
+  .navIcon {
+    display: none;
+  }
+
+  .sidebarFooter {
+    display: none;
+  }
+
+  .main {
+    gap: 28px;
+    padding: 28px 18px 40px;
+  }
+
+  .emptyState {
+    min-height: 220px;
+    padding: 28px 20px;
+  }
+}
