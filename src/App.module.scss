@@ -151,43 +151,6 @@
   font-size: 12px;
 }
 
-.emptyState {
-  @include mixins.card-surface;
-
-  display: flex;
-  min-height: 280px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 36px;
-  text-align: center;
-
-  h3 {
-    margin: 0;
-    color: tokens.$color-text;
-    font-size: 18px;
-  }
-
-  p {
-    margin: 8px 0 0;
-    color: tokens.$color-muted;
-    font-size: 14px;
-  }
-}
-
-.emptyIcon {
-  display: flex;
-  width: 54px;
-  height: 54px;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-  border-radius: 16px;
-  color: #219b8d;
-  background-color: rgba(81, 199, 181, 0.16);
-  font-size: 25px;
-}
-
 @include mixins.tablet-down {
   .sidebar {
     flex-basis: 220px;
@@ -240,10 +203,5 @@
   .main {
     gap: 28px;
     padding: 28px 18px 40px;
-  }
-
-  .emptyState {
-    min-height: 220px;
-    padding: 28px 20px;
   }
 }

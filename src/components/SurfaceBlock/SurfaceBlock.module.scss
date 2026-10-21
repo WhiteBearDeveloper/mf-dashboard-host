@@ -1,0 +1,14 @@
+@use "../../styles/mixins" as mixins;
+
+.surfaceBlock {
+  @include mixins.card-surface;
+
+  min-width: 0;
+  padding: 24px;
+}
+
+@include mixins.mobile-down {
+  .surfaceBlock {
+    padding: 18px;
+  }
+}

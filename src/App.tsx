@@ -3,6 +3,7 @@ import { ErrorBoundary } from "./ErrorBoundary";
 import type { DashboardDate } from "@whitebeardeveloper/contracts";
 import { DateFilter, getDashboardDate } from "@whitebeardeveloper/ui";
 import styles from "./App.module.scss";
+import SurfaceBlock from "./components/SurfaceBlock/SurfaceBlock";
 
 const WeatherWidget = lazy(() => import("weatherWidget/WeatherWidget"));
 
@@ -66,11 +67,13 @@ function App() {
             <span className={styles.widgetCount}>1 виджет</span>
           </div>
           <DateFilter value={selectedDate} onChange={setSelectedDate} />
-          <ErrorBoundary fallback={<p>Виджет погоды временно недоступен.</p>}>
-            <Suspense fallback={<p>Загружаем виджет погоды…</p>}>
-              <WeatherWidget date={selectedDate} />
-            </Suspense>
-          </ErrorBoundary>
+          <SurfaceBlock>
+            <ErrorBoundary fallback={<p>Виджет погоды временно недоступен.</p>}>
+              <Suspense fallback={<p>Загружаем виджет погоды…</p>}>
+                <WeatherWidget date={selectedDate} />
+              </Suspense>
+            </ErrorBoundary>
+          </SurfaceBlock>
         </section>
       </main>
     </div>
