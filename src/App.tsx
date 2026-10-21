@@ -4,6 +4,8 @@ import type { DashboardDate } from "@whitebeardeveloper/contracts";
 import { DateFilter, getDashboardDate } from "@whitebeardeveloper/ui";
 import styles from "./App.module.scss";
 
+const WeatherWidget = lazy(() => import("weatherWidget/WeatherWidget"));
+
 function App() {
   const [selectedDate, setSelectedDate] = useState<DashboardDate>(() =>
     getDashboardDate(),
@@ -61,25 +63,15 @@ function App() {
               <p className={styles.eyebrow}>РАБОЧЕЕ ПРОСТРАНСТВО</p>
               <h2 id="widgets-title">Мои виджеты</h2>
             </div>
-            <span className={styles.widgetCount}>0 виджетов</span>
+            <span className={styles.widgetCount}>1 виджет</span>
           </div>
           <DateFilter value={selectedDate} onChange={setSelectedDate} />
-          <div className={styles.emptyState}>
-            <span className={styles.emptyIcon} aria-hidden="true">
-              ✦
-            </span>
-            <h3>Пока здесь пусто</h3>
-            <p>Первым добавим виджет прогноза погоды.</p>
-          </div>
+          <ErrorBoundary fallback={<p>Виджет погоды временно недоступен.</p>}>
+            <Suspense fallback={<p>Загружаем виджет погоды…</p>}>
+              <WeatherWidget date={selectedDate} />
+            </Suspense>
+          </ErrorBoundary>
         </section>
-        {/* <section aria-label="Виджеты Dasboard"> */}
-        {/* <ErrorBoundary fallback={<p>Виджет продаж временно недоступен.</p>}>
-          
-        </ErrorBoundary> */}
-        {/* <ErrorBoundary fallback={<p>Виджет аналитики временно недоступен.</p>}>
-          
-        </ErrorBoundary> */}
-        {/* </section> */}
       </main>
     </div>
   );

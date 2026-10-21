@@ -57,7 +57,9 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: "dashboard_host",
-      remotes: {},
+      remotes: {
+        weatherWidget: "weatherWidget@http://localhost:3004/remoteEntry.js",
+      },
       shared: {
         react: {
           singleton: true,
