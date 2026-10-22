@@ -39,6 +39,8 @@ jobs:
 
       - name: Build dashboard
         run: npm run build
+        env:
+          WEATHER_WIDGET_REMOTE_URL: ${{ vars.WEATHER_WIDGET_REMOTE_URL }}
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
