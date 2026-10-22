@@ -3,6 +3,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const rootDependences = require("./package.json").dependencies;
 
+const weatherWidgetRemoteUrl =
+  process.env.WEATHER_WIDGET_REMOTE_URL ||
+  "http://localhost:3004/remoteEntry.js";
+
 module.exports = {
   mode: "development",
 
@@ -58,7 +62,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "dashboard_host",
       remotes: {
-        weatherWidget: "weatherWidget@http://localhost:3004/remoteEntry.js",
+        weatherWidget: `weatherWidget@${weatherWidgetRemoteUrl}`,
       },
       shared: {
         react: {
