@@ -13,14 +13,14 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@whitebeardeveloper/ui": "^0.1.0",
+    "@whitebeardeveloper/ui": "^0.2.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
-    "@whitebeardeveloper/contracts": "^0.2.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@whitebeardeveloper/contracts": "^0.2.0",
     "css-loader": "^7.1.5",
     "html-webpack-plugin": "^5.6.8",
     "sass": "^1.105.1",
