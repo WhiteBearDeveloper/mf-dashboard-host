@@ -4,6 +4,7 @@ import type { DashboardDate } from "@whitebeardeveloper/contracts";
 import { DateFilter, getDashboardDate } from "@whitebeardeveloper/ui";
 import styles from "./App.module.scss";
 import SurfaceBlock from "./components/SurfaceBlock/SurfaceBlock";
+import { parseISO } from "date-fns";
 
 const WeatherWidget = lazy(() => import("weatherWidget/WeatherWidget"));
 
@@ -11,6 +12,10 @@ function App() {
   const [selectedDate, setSelectedDate] = useState<DashboardDate>(() =>
     getDashboardDate(),
   );
+
+  const minDate = parseISO(getDashboardDate(-1));
+  const maxDate = parseISO(getDashboardDate(1));
+
   return (
     <div className={styles.shell}>
       <aside className={styles.sidebar} aria-label="Боковая панель">
@@ -66,7 +71,12 @@ function App() {
             </div>
             <span className={styles.widgetCount}>1 виджет</span>
           </div>
-          <DateFilter value={selectedDate} onChange={setSelectedDate} />
+          <DateFilter
+            value={selectedDate}
+            onChange={setSelectedDate}
+            minDate={minDate}
+            maxDate={maxDate}
+          />
           <SurfaceBlock>
             <ErrorBoundary fallback={<p>Виджет погоды временно недоступен.</p>}>
               <Suspense fallback={<p>Загружаем виджет погоды…</p>}>
