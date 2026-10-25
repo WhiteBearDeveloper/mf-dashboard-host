@@ -13,8 +13,8 @@ function App() {
     getDashboardDate(),
   );
 
-  const minDate = parseISO(getDashboardDate(-1));
-  const maxDate = parseISO(getDashboardDate(1));
+  const minDate = parseISO(getDashboardDate());
+  const maxDate = parseISO(getDashboardDate(2));
 
   return (
     <div className={styles.shell}>
