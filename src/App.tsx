@@ -1,9 +1,12 @@
 import React, { lazy, Suspense, useState } from "react";
 import { ErrorBoundary } from "./ErrorBoundary";
 import type { DashboardDate } from "@whitebeardeveloper/contracts";
-import { DateFilter, getDashboardDate } from "@whitebeardeveloper/ui";
+import {
+  DateFilter,
+  getDashboardDate,
+  SurfaceBlock,
+} from "@whitebeardeveloper/ui";
 import styles from "./App.module.scss";
-import SurfaceBlock from "./components/SurfaceBlock/SurfaceBlock";
 import { parseISO } from "date-fns";
 
 const WeatherWidget = lazy(() => import("weatherWidget/WeatherWidget"));
@@ -77,7 +80,7 @@ function App() {
             minDate={minDate}
             maxDate={maxDate}
           />
-          <SurfaceBlock>
+          <SurfaceBlock className={styles.weatherWidget}>
             <ErrorBoundary fallback={<p>Виджет погоды временно недоступен.</p>}>
               <Suspense fallback={<p>Загружаем виджет погоды…</p>}>
                 <WeatherWidget date={selectedDate} />
