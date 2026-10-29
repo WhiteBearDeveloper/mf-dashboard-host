@@ -152,10 +152,6 @@
   font-size: 12px;
 }
 
-.weatherWidget {
-  width: 50%;
-}
-
 @include mixins.tablet-down {
   .sidebar {
     flex-basis: 220px;
@@ -208,9 +204,5 @@
   .main {
     gap: 28px;
     padding: 28px 18px 40px;
-  }
-
-  .weatherWidget {
-    width: 100%;
   }
 }

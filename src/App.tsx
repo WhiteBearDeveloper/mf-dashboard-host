@@ -5,6 +5,7 @@ import {
   DateFilter,
   getDashboardDate,
   SurfaceBlock,
+  FlexRow,
 } from "@whitebeardeveloper/ui";
 import styles from "./App.module.scss";
 import { parseISO } from "date-fns";
@@ -80,13 +81,17 @@ function App() {
             minDate={minDate}
             maxDate={maxDate}
           />
-          <SurfaceBlock className={styles.weatherWidget}>
-            <ErrorBoundary fallback={<p>Виджет погоды временно недоступен.</p>}>
-              <Suspense fallback={<p>Загружаем виджет погоды…</p>}>
-                <WeatherWidget date={selectedDate} />
-              </Suspense>
-            </ErrorBoundary>
-          </SurfaceBlock>
+          <FlexRow>
+            <SurfaceBlock>
+              <ErrorBoundary
+                fallback={<p>Виджет погоды временно недоступен.</p>}
+              >
+                <Suspense fallback={<p>Загружаем виджет погоды…</p>}>
+                  <WeatherWidget date={selectedDate} />
+                </Suspense>
+              </ErrorBoundary>
+            </SurfaceBlock>
+          </FlexRow>
         </section>
       </main>
     </div>
