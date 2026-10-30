@@ -13,7 +13,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@whitebeardeveloper/ui": "^0.7.0",
+    "@whitebeardeveloper/ui": "^0.8.2",
     "date-fns": "^4.4.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"

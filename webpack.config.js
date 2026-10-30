@@ -55,6 +55,10 @@ module.exports = {
           "sass-loader",
         ],
       },
+      {
+        test: /\.(woff2?|ttf|otf|eot)$/i,
+        type: "asset/resource",
+      },
     ],
   },
 
