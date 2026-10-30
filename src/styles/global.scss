@@ -1,12 +1,5 @@
+@use "@whitebeardeveloper/ui/reset";
 @use "./tokens" as tokens;
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 html,
 body,
@@ -15,7 +8,6 @@ body,
 }
 
 body {
-  margin: 0;
   background-color: tokens.$color-page;
   color: tokens.$color-text;
   font-family:
@@ -25,15 +17,4 @@ body {
     "Segoe UI",
     sans-serif;
   text-rendering: optimizeLegibility;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
 }
