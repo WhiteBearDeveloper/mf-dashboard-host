@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { ErrorBoundary } from "./ErrorBoundary";
 import type { DashboardDate } from "@whitebeardeveloper/contracts";
 import {
