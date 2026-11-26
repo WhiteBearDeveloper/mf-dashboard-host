@@ -1,6 +1,13 @@
 @use "@whitebeardeveloper/ui/reset";
 @use "@whitebeardeveloper/ui/fonts";
-@use "./tokens" as tokens;
+@use "@whitebeardeveloper/ui/theme";
+
+:root {
+  --app-page-background: #f4f7fb;
+  --app-sidebar-background: #17283f;
+  --app-sidebar-hover-background: #243a57;
+  --app-brand-mark-foreground: #17283f;
+}
 
 html,
 body,
@@ -9,13 +16,8 @@ body,
 }
 
 body {
-  background-color: tokens.$color-page;
-  color: tokens.$color-text;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  background-color: var(--app-page-background);
+  color: var(--app-text, var(--ui-text));
+  font-family: var(--app-font-family, var(--ui-font-family));
   text-rendering: optimizeLegibility;
 }
